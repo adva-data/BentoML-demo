@@ -46,9 +46,9 @@ pipeline {
                 // sh 'git clone https://github.com/bentoml/bentoml.git'
                 // sh 'cd bentoml'
                 // sh 'pip install -e .'
-                sh " cd ~ "
+                sh " cd . "
                 sh "ls"
-                    sh "echo the pwd"
+                sh "echo the pwd"
                 sh "pwd"
                
                 
