@@ -1,5 +1,9 @@
 pipeline {
-    agent any
+    agent {
+    docker {
+            image 'bentoml/model-server:0.13.1'
+        }
+    }
 
     environment {
         // Define environment variables here
@@ -9,6 +13,8 @@ pipeline {
         BENTOML_SERVICE_NAME = 'iris_classifier'
         BENTO_SERVICE_VERSION= 'latest'
         REPOSITORY_URI = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${IMAGE_REPO_NAME}"
+
+          PATH = "$PATH:/usr/local/bin"
     }
 
 
