@@ -37,13 +37,13 @@ pipeline {
             steps {
                 // Install BentoML using pip
                 
-                sh 'pip install bentoml'
-                sh 'pip install "bentoml[all]"'
-                sh 'pip install git+https://github.com/bentoml/bentoml'
+                // sh 'pip install bentoml'
+                // sh 'pip install "bentoml[all]"'
+                // sh 'pip install git+https://github.com/bentoml/bentoml'
                 
-                sh 'git clone https://github.com/bentoml/bentoml.git'
-                sh 'cd bentoml'
-                sh 'pip install -e .'
+                // sh 'git clone https://github.com/bentoml/bentoml.git'
+                // sh 'cd bentoml'
+                // sh 'pip install -e .'
     
                 // Build the docker image using the defined service name and version
                 sh "bentoml containerize $BENTOML_SERVICE_NAME:$BENTO_SERVICE_VERSION -t $ECR_REPO_NAME:$BENTO_SERVICE_VERSION"
