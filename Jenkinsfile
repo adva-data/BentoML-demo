@@ -35,7 +35,7 @@ pipeline {
 
  
 
-        stage('Build docker image using BentoML') {
+        stage('Install BentoML') {
             steps {
                 // Install BentoML using pip
                 
@@ -61,14 +61,18 @@ pipeline {
                 // script {
                 // sh "bentoml containerize $BENTOML_SERVICE_NAME:$BENTO_SERVICE_VERSION -t $ECR_REPO_NAME:$BENTO_SERVICE_VERSION"
                 // }
-                  sh "bentoml containerize $BENTOML_SERVICE_NAME:$BENTO_SERVICE_VERSION -t $ECR_REPO_NAME:$BENTO_SERVICE_VERSION"
+                  
             }
             
         }
 
 
 
-          
+          stage("Build docker image using BentoML"){
+               script {
+                sh "bentoml containerize $BENTOML_SERVICE_NAME:$BENTO_SERVICE_VERSION -t $ECR_REPO_NAME:$BENTO_SERVICE_VERSION"
+                }
+          }
 
          
 
