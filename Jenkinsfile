@@ -58,9 +58,10 @@ pipeline {
                     }
 
                 
-                script {
-                sh "bentoml containerize $BENTOML_SERVICE_NAME:$BENTO_SERVICE_VERSION -t $ECR_REPO_NAME:$BENTO_SERVICE_VERSION"
-                }
+                // script {
+                // sh "bentoml containerize $BENTOML_SERVICE_NAME:$BENTO_SERVICE_VERSION -t $ECR_REPO_NAME:$BENTO_SERVICE_VERSION"
+                // }
+                  sh "bentoml containerize $BENTOML_SERVICE_NAME:$BENTO_SERVICE_VERSION -t $ECR_REPO_NAME:$BENTO_SERVICE_VERSION"
             }
             
         }
