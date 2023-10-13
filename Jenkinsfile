@@ -69,9 +69,11 @@ pipeline {
 
 
           stage("Build docker image using BentoML"){
-               script {
-                sh "bentoml containerize $BENTOML_SERVICE_NAME:$BENTO_SERVICE_VERSION -t $ECR_REPO_NAME:$BENTO_SERVICE_VERSION"
-                }
+              steps{  
+                   script {
+                    sh "bentoml containerize $BENTOML_SERVICE_NAME:$BENTO_SERVICE_VERSION -t $ECR_REPO_NAME:$BENTO_SERVICE_VERSION"
+                    }
+              }
           }
 
          
