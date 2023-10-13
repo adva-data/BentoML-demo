@@ -46,7 +46,9 @@ pipeline {
                 // sh 'pip install -e .'
     
                 // Build the docker image using the defined service name and version
+                script {
                 sh "bentoml containerize $BENTOML_SERVICE_NAME:$BENTO_SERVICE_VERSION -t $ECR_REPO_NAME:$BENTO_SERVICE_VERSION"
+                }
             }
         }
 
