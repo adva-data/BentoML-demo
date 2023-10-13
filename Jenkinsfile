@@ -1,9 +1,5 @@
 pipeline {
-    agent {
-    docker {
-            image 'bentoml/model-server:0.13.1'
-        }
-    }
+    agent any
 
     environment {
         // Define environment variables here
