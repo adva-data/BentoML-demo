@@ -10,7 +10,7 @@ pipeline {
         BENTO_SERVICE_VERSION= 'latest'
         REPOSITORY_URI = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${IMAGE_REPO_NAME}"
 
-          PATH = "$PATH:/usr/local/bin"
+          // PATH = "$PATH:/usr/local/bin"
     }
 
 
@@ -46,7 +46,8 @@ pipeline {
                 // sh 'git clone https://github.com/bentoml/bentoml.git'
                 // sh 'cd bentoml'
                 // sh 'pip install -e .'
-
+                    sh "echo the pwd"
+                sh "pwd"
                
                 
                 // Build the docker image using the defined service name and version
